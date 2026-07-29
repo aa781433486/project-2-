@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- تدرج لوني جميل -->
+    <gradient
+        android:startColor="#FFD54F"
+        android:endColor="#FF8F00"
+        android:angle="0"/>
+
+    <!-- زوايا مقوسة -->
+    <corners android:radius="12dp" />
+
+    <!-- تباعد داخلي -->
+    <padding
+        android:left="10dp"
+        android:top="6dp"
+        android:right="10dp"
+        android:bottom="6dp"/>
+</shape>

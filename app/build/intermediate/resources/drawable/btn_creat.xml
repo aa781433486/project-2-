@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- لون الخلفية -->
+    <solid android:color="#FF2196F3"/>
+
+    <!-- زوايا مستديرة -->
+    <corners android:radius="16dp"/>
+
+    <!-- حواف (اختياري) -->
+    <stroke
+        android:width="2dp"
+        android:color="#388E3C"/>
+</shape>

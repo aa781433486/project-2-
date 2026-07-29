@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="4dp">
+
+
+    <!-- المنتج -->
+
+    <EditText
+        android:id="@+id/etProduct"
+
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+
+        android:layout_weight="3"
+
+        android:hint="المنتج"
+
+        android:inputType="text"
+
+        android:padding="8dp"
+
+        android:textSize="14sp"/>
+
+
+
+    <!-- الكمية -->
+
+    <EditText
+        android:id="@+id/etQty"
+
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+
+        android:layout_weight="1"
+
+        android:hint="كمية"
+
+        android:inputType="numberDecimal"
+
+        android:gravity="center"
+
+        android:padding="5dp"
+
+        android:textSize="14sp"/>
+
+
+
+    <!-- السعر -->
+
+    <EditText
+        android:id="@+id/etPrice"
+
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+
+        android:layout_weight="2"
+
+        android:hint="السعر"
+
+        android:inputType="numberDecimal"
+
+        android:gravity="center"
+
+        android:padding="5dp"
+
+        android:textSize="14sp"/>
+
+
+
+    <!-- المجموع -->
+
+    <EditText
+        android:id="@+id/etSubtotal"
+
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+
+        android:layout_weight="2"
+
+        android:hint="المجموع"
+
+        android:inputType="numberDecimal"
+
+        android:gravity="center"
+
+        android:padding="5dp"
+
+        android:textSize="14sp"
+
+        android:enabled="false"/>
+
+
+</LinearLayout>

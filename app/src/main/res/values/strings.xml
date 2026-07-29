@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">نظام البقالة</string>
+    <string name="app_welcome">مرحباً بك في نظام البقالة</string>
+    <string name="login">دخول</string>
+    <string name="create_user">إنشاء مستخدم جديد</string>
+    <string name="fingerprint_login">الدخول بالبصمة</string>
+    <string name="settings">الإعدادات</string>
+    <string name="reports">التقارير</string>
+    <string name="products">قائمة المنتجات</string>
+    <string name="purchase">المبيعات</string>
+    <string name="debts">قائمة الديون</string>
+    <string name="invoices">الفواتير</string>
+    <string name="logout">تسجيل الخروج</string>
+</resources>

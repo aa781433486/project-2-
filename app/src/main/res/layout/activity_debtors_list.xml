@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/stat_card_bg_red"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💳 إدارة الديون"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvTotalDebt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="إجمالي الديون: 0.00 ر.س"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFECB3"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/etSearchDebtor"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:hint="🔍 ابحث عن مديون..."
+            android:padding="10dp"
+            android:background="@drawable/edit_text_background"
+            android:gravity="right|center_vertical"
+            android:textColorHint="#BDBDBD"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listDebtors"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/colorBackground"
+        android:dividerHeight="6dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:clipToPadding="false"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:background="@drawable/card_background"
+        android:elevation="4dp">
+
+        <Button
+            android:id="@+id/btnAddDebtor"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="➕ إضافة مديون"
+            android:background="@drawable/btn_green_rounded"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:layout_marginEnd="6dp"/>
+
+        <Button
+            android:id="@+id/btnEditDebtor"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="✏️ تعديل"
+            android:background="@drawable/btn_orange_rounded"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:layout_marginEnd="6dp"/>
+
+        <Button
+            android:id="@+id/btnDeleteDebtor"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="🗑️ حذف"
+            android:background="@drawable/btn_red_rounded"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="24dp"
+        android:paddingTop="48dp"
+        android:paddingBottom="48dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ayman"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tvWelcomeLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🌟 مرحباً بك في نظام البقالة 🌟"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:scrollHorizontally="true"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"
+            android:padding="10dp"
+            android:background="@drawable/welcome_bg"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="20dp"
+            android:elevation="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="تسجيل الدخول"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="اسم المستخدم"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextSecondary"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/etUsername"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="أدخل اسم المستخدم"
+                android:inputType="textPersonName"
+                android:padding="12dp"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/edit_text_background"
+                android:gravity="right|center_vertical"
+                android:textColorHint="#BDBDBD"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="كلمة المرور"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextSecondary"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="أدخل كلمة المرور"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/edit_text_background"
+                android:gravity="right|center_vertical"
+                android:textColorHint="#BDBDBD"/>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="🔑 دخول"
+                android:background="@drawable/btn_blue_rounded"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <Button
+                android:id="@+id/btnCreate"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="➕ إنشاء حساب المالك (مرة واحدة فقط)"
+                android:background="@drawable/btn_creat"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvSetupHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⚠️ لا يوجد حساب. أنشئ حساباً واحداً للمالك."
+                android:textSize="12sp"
+                android:textColor="@color/colorWarning"
+                android:gravity="center"
+                android:padding="6dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btnFingerprint"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="👆 الدخول بالبصمة"
+                android:background="@drawable/btn_owner"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

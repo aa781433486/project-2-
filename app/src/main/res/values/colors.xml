@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1E88E5</color>
+    <color name="colorPrimaryDark">#1565C0</color>
+    <color name="colorAccent">#FF7043</color>
+    <color name="colorSuccess">#43A047</color>
+    <color name="colorWarning">#FB8C00</color>
+    <color name="colorDanger">#E53935</color>
+    <color name="colorBackground">#F0F4F8</color>
+    <color name="colorCard">#FFFFFF</color>
+    <color name="colorTextPrimary">#212121</color>
+    <color name="colorTextSecondary">#757575</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorDarkBg">#121212</color>
+    <color name="colorDarkCard">#1E1E1E</color>
+    <color name="colorDarkText">#E0E0E0</color>
+    <color name="colorStatBlue">#1E88E5</color>
+    <color name="colorStatGreen">#43A047</color>
+    <color name="colorStatOrange">#FB8C00</color>
+    <color name="colorStatRed">#E53935</color>
+</resources>

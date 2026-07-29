@@ -1,0 +1,15 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- لون الزر -->
+    <solid android:color="#FF4444" /> <!-- اللون السابق للزر -->
+
+    <!-- نصف قطر الزوايا -->
+    <corners android:radius="16dp" />
+
+    <!-- ظل بسيط (اختياري) -->
+    <padding
+        android:left="4dp"
+        android:top="4dp"
+        android:right="4dp"
+        android:bottom="4dp" />
+</shape>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📖 دليل استخدام التطبيق"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/stat_card_bg_blue"/>
+
+        <!-- بطاقة مساعدة عامة -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🛒 إدارة المنتجات"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextPrimary"
+                android:lineSpacingExtra="6dp"
+                android:text="• من شاشة ”عرض المنتجات” يمكنك البحث عن أي منتج بالاسم أو السعر أو الكمية، ومشاهدة سعر الشراء والبيع والربح لكل منتج.\n\n• لإضافة منتج جديد اختر نوع البيع (تجزئة أو جملة) أولاً، ثم أدخل الأسعار والكميات الخاصة بهذا النوع فقط.\n\n• من شاشة ”تعديل / حذف” يمكنك البحث عن منتج موجود وتحديث بياناته أو حذفه.\n\n• إذا كان المنتج يُباع بالجملة فقط ولديك كراتين متاحة، تستطيع تحويل عدد منها إلى وحدات تجزئة مباشرة من شاشة التعديل، وسيُحسب سعر شراء الوحدة تلقائياً من سعر الكرتون."/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🧾 تسجيل عمليات البيع"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextPrimary"
+                android:lineSpacingExtra="6dp"
+                android:text="• أدخل اسم العميل، ثم اختر طريقة الدفع (نقد أو دين) ونوع البيع (تجزئة أو جملة).\n\n• أضف المنتجات المطلوبة وحدد الكمية والسعر لكل منتج، وسيُحسب المجموع الكلي تلقائياً.\n\n• عند اختيار ”دين” يُضاف المبلغ إلى حساب العميل في شاشة ”العملاء والديون”."/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💹 تقرير الأرباح"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextPrimary"
+                android:lineSpacingExtra="6dp"
+                android:text="• من الشاشة الرئيسية اضغط زر ”الربح” لعرض تقرير مفصّل: ربح اليوم، الأسبوع، الشهر، والسنة، مع رسم بياني مبسّط يوضح اتجاه الربح خلال الفترات السابقة.\n\n• الربح المعروض تقديري، ويُحسب باستخدام أسعار الشراء الحالية للمنتجات مطبّقة على مبيعات كل فترة."/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⚙️ الإعدادات"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextPrimary"
+                android:lineSpacingExtra="6dp"
+                android:text="• يمكنك تغيير اسم المتجر، تفعيل أو إيقاف بصمة الدخول، وتفعيل الوضع الداكن (يُطبّق فوراً دون الحاجة لإعادة تشغيل التطبيق).\n\n• يمكنك أيضاً ضبط حد تنبيه انخفاض المخزون، وستظهر لك رسالة تلقائية عند فتح التطبيق إذا وصل أي منتج إلى هذا الحد."/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="👥 العملاء والديون والفواتير"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextPrimary"
+                android:lineSpacingExtra="6dp"
+                android:text="• شاشة ”العملاء والديون” تعرض كل عميل عليه دين، ويمكنك تسجيل دفعة جديدة له.\n\n• شاشة ”الفواتير” تعرض جميع فواتير البيع المسجلة، ويمكنك من خلالها تعديل أو حذف أي فاتورة."/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

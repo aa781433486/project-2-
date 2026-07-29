@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- اسم البقالة -->
+    <TextView
+        android:id="@+id/tvStoreName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="اسم البقالة"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#4CAF50"
+        android:gravity="center"
+        android:paddingBottom="4dp"/>
+
+    <!-- الشعار -->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ayman"
+        android:layout_gravity="center"/>
+
+    <!-- التاريخ والوقت -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingVertical="8dp">
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="التاريخ"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:padding="6dp"
+            android:background="#2196F3"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الوقت"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:padding="6dp"
+            android:background="#FF5722"/>
+    </LinearLayout>
+
+    <!-- جدول المنتجات -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:fillViewport="true"
+        android:scrollbars="vertical">
+
+        <TableLayout
+            android:id="@+id/tableProducts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0,1,2,3"
+            android:shrinkColumns="0,1,2,3"
+            android:background="#f9f9f9"
+            android:divider="@android:color/darker_gray"
+            android:showDividers="middle"/>
+    </ScrollView>
+
+    <!-- المجموع الكلي -->
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="المجموع الكلي: 0.00"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#E91E63"
+        android:gravity="end"
+        android:paddingTop="12dp"/>
+</LinearLayout>

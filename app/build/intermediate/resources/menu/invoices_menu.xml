@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- إدخال اسم البقالة -->
+    <item
+        android:id="@+id/menu_store_name"
+        android:title="اسم البقالة"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
+    <!-- ممكن تضيف أزرار أخرى زي التصدير والاستيراد هنا -->
+    <item
+        android:id="@+id/menu_export"
+        android:title="تصدير"
+        android:orderInCategory="101"
+        android:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_import"
+        android:title="استيراد"
+        android:orderInCategory="102"
+        android:showAsAction="never" />
+
+</menu>

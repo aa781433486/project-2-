@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✏️ تعديل / حذف منتج"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/stat_card_bg_orange"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔍 ابحث عن منتج"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="8dp"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/etSearchName"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="اكتب اسم المنتج للبحث..."
+                android:completionThreshold="1"
+                android:padding="12dp"
+                android:background="@drawable/edit_text_background"
+                android:inputType="text"
+                android:gravity="right|center_vertical"
+                android:textColorHint="#BDBDBD"
+                android:textSize="15sp"/>
+
+            <LinearLayout
+                android:id="@+id/layoutResults"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutSelectedCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone">
+
+            <TextView
+			android:id="@+id/tvSelectedLabel"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="✅ تم الاختيار"
+			android:textSize="15sp"
+			android:textStyle="bold"
+			android:textColor="@color/colorSuccess"
+			android:layout_marginBottom="4dp"/>
+			
+			
+			<TextView
+			android:id="@+id/tvCurrentStock"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="المخزون: --"
+			android:textSize="13sp"
+			android:textColor="@color/colorTextSecondary"
+			android:layout_marginBottom="12dp"/>
+			
+			<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="اسم المنتج"
+			android:textSize="12sp"
+			android:textColor="@color/colorTextSecondary"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="4dp"/>
+
+			<EditText
+			android:id="@+id/etEditName"
+			android:layout_width="match_parent"
+			android:layout_height="52dp"
+			android:hint="اسم المنتج"
+			android:inputType="text"
+			android:padding="12dp"
+			android:background="@drawable/edit_text_background"/>
+
+
+			<!-- قسم التحويل: تحويل عدد من الكراتين إلى وحدات تجزئة -->
+			<LinearLayout
+			android:id="@+id/layoutConvert"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:background="#FFF8E1"
+			android:padding="10dp"
+			android:layout_marginTop="10dp"
+			android:visibility="gone">
+
+			<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="🔄 تحويل كراتين إلى وحدات تجزئة"
+			android:textStyle="bold"
+			android:textSize="13sp"
+			android:textColor="@color/colorWarning"
+			android:layout_marginBottom="6dp"/>
+
+			<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="عدد الكراتين المطلوب تحويلها"
+			android:textSize="12sp"
+			android:textColor="@color/colorTextSecondary"
+			android:layout_marginBottom="4dp"/>
+
+			<EditText
+			android:id="@+id/etConvertBoxes"
+			android:layout_width="match_parent"
+			android:layout_height="52dp"
+			android:hint="عدد الكراتين"
+			android:inputType="number"
+			android:padding="12dp"
+			android:background="@drawable/edit_text_background"/>
+
+			<TextView
+			android:id="@+id/tvConvertUnitCost"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="💡 سعر شراء الوحدة المحسوب: --"
+			android:textSize="12sp"
+			android:textStyle="bold"
+			android:textColor="@color/colorSuccess"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="4dp"/>
+
+			<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="سعر بيع الوحدة بعد التحويل"
+			android:textSize="12sp"
+			android:textColor="@color/colorTextSecondary"
+			android:layout_marginBottom="4dp"/>
+
+			<EditText
+			android:id="@+id/etConvertRetailPrice"
+			android:layout_width="match_parent"
+			android:layout_height="52dp"
+			android:hint="سعر بيع الوحدة بعد التحويل"
+			android:inputType="numberDecimal"
+			android:padding="12dp"
+			android:background="@drawable/edit_text_background"/>
+
+			</LinearLayout>
+
+
+			<!-- نوع البيع -->
+
+			<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="نوع البيع"
+			android:textStyle="bold"
+			android:layout_marginTop="12dp"
+			android:layout_marginBottom="4dp"/>
+
+
+			<RadioGroup
+			android:id="@+id/rgEditSaleType"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+
+			<RadioButton
+			android:id="@+id/rbEditRetail"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center"
+			android:text="تجزئة"/>
+
+
+			<RadioButton
+			android:id="@+id/rbEditWholesale"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center"
+			android:text="جملة"/>
+
+
+			</RadioGroup>
+
+			<LinearLayout
+			android:id="@+id/layoutEditRetail"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:layout_marginTop="8dp"
+			android:visibility="gone">
+
+			<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="سعر شراء الوحدة"
+			android:textSize="12sp"
+			android:textColor="@color/colorTextSecondary"
+			android:layout_marginBottom="4dp"/>
+
+			<EditText
+			android:id="@+id/etEditRetailCost"
+			android:layout_width="match_parent"
+			android:layout_height="52dp"
+			android:hint="سعر شراء الوحدة"
+			android:inputType="numberDecimal"
+			android:padding="12dp"
+			android:background="@drawable/edit_text_background"/>
+
+			<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="سعر بيع الوحدة"
+			android:textSize="12sp"
+			android:textColor="@color/colorTextSecondary"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="4dp"/>
+
+			<EditText
+			android:id="@+id/etEditRetailSell"
+			android:layout_width="match_parent"
+			android:layout_height="52dp"
+			android:hint="سعر بيع الوحدة"
+			android:inputType="numberDecimal"
+			android:padding="12dp"
+			android:background="@drawable/edit_text_background"/>
+
+			<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="عدد الوحدات"
+			android:textSize="12sp"
+			android:textColor="@color/colorTextSecondary"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="4dp"/>
+
+			<EditText
+			android:id="@+id/etEditRetailQty"
+			android:layout_width="match_parent"
+			android:layout_height="52dp"
+			android:hint="عدد الوحدات"
+			android:inputType="number"
+			android:padding="12dp"
+			android:background="@drawable/edit_text_background"/>
+
+
+			</LinearLayout>
+
+			<LinearLayout
+			android:id="@+id/layoutEditWholesale"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:layout_marginTop="8dp"
+			android:visibility="gone">
+
+			<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="سعر شراء الكرتون"
+			android:textSize="12sp"
+			android:textColor="@color/colorTextSecondary"
+			android:layout_marginBottom="4dp"/>
+
+			<EditText
+			android:id="@+id/etEditBoxCost"
+			android:layout_width="match_parent"
+			android:layout_height="52dp"
+			android:hint="سعر شراء الكرتون"
+			android:inputType="numberDecimal"
+			android:padding="12dp"
+			android:background="@drawable/edit_text_background"/>
+
+			<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="سعر بيع الكرتون"
+			android:textSize="12sp"
+			android:textColor="@color/colorTextSecondary"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="4dp"/>
+
+			<EditText
+			android:id="@+id/etEditBoxSell"
+			android:layout_width="match_parent"
+			android:layout_height="52dp"
+			android:hint="سعر بيع الكرتون"
+			android:inputType="numberDecimal"
+			android:padding="12dp"
+			android:background="@drawable/edit_text_background"/>
+
+			<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="عدد الكراتين"
+			android:textSize="12sp"
+			android:textColor="@color/colorTextSecondary"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="4dp"/>
+
+			<EditText
+			android:id="@+id/etEditBoxesQty"
+			android:layout_width="match_parent"
+			android:layout_height="52dp"
+			android:hint="عدد الكراتين"
+			android:inputType="number"
+			android:padding="12dp"
+			android:background="@drawable/edit_text_background"/>
+
+			<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="عدد الوحدات داخل الكرتون"
+			android:textSize="12sp"
+			android:textColor="@color/colorTextSecondary"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="4dp"/>
+
+			<EditText
+			android:id="@+id/etEditUnitsPerBox"
+			android:layout_width="match_parent"
+			android:layout_height="52dp"
+			android:hint="عدد الوحدات داخل الكرتون"
+			android:inputType="number"
+			android:padding="12dp"
+			android:background="@drawable/edit_text_background"/>
+
+
+			</LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnUpdate"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:text="💾 تحديث"
+                    android:background="@drawable/btn_blue_rounded"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="8dp"/>
+
+                <Button
+                    android:id="@+id/btnDelete"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:text="🗑️ حذف"
+                    android:background="@drawable/btn_red_rounded"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
