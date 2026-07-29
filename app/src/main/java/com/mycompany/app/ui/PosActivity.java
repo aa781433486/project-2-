@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.mycompany.app.R;
 import com.mycompany.app.data.AppDatabase;
 import com.mycompany.app.data.Product;
@@ -24,7 +26,7 @@ import java.util.List;
 // Simple POS activity: search products, scan barcode and add to invoice (POC)
 public class PosActivity extends AppCompatActivity {
 
-    private static final int REQUEST_CODE_SCAN = 49374; // arbitrary
+    private static final int REQUEST_CODE_SCAN = 49374; // not used with IntentIntegrator
 
     private EditText etSearch;
     private Button btnScan;
@@ -76,22 +78,26 @@ public class PosActivity extends AppCompatActivity {
     }
 
     private void startBarcodeScanner() {
-        // Use ZXing via IntentIntegrator if present. Fallback: show Toast.
-        try {
-            Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-            intent.putExtra("SCAN_MODE", "PRODUCT_MODE");
-            startActivityForResult(intent, REQUEST_CODE_SCAN);
-        } catch (Exception ex) {
-            Toast.makeText(this, "Barcode scanner not installed or library missing.", Toast.LENGTH_LONG).show();
-        }
+        IntentIntegrator integrator = new IntentIntegrator(this);
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.PRODUCT_CODE_TYPES);
+        integrator.setPrompt("Scan a barcode");
+        integrator.setBeepEnabled(true);
+        integrator.setBarcodeImageEnabled(false);
+        integrator.initiateScan();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_SCAN && data != null) {
-            String code = data.getStringExtra("SCAN_RESULT");
-            handleScannedBarcode(code);
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            String code = result.getContents();
+            if (code != null) {
+                handleScannedBarcode(code);
+            } else {
+                Toast.makeText(this, "Scan cancelled", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
