@@ -23,6 +23,9 @@ public interface ProductDao {
     @Query("SELECT * FROM products WHERE barcode = :barcode LIMIT 1")
     Product findByBarcode(String barcode);
 
+    @Query("SELECT * FROM products WHERE id = :id LIMIT 1")
+    Product findById(int id);
+
     @Query("SELECT * FROM products WHERE name LIKE '%' || :query || '%' ORDER BY name LIMIT 100")
     List<Product> searchByName(String query);
 

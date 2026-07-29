@@ -1,6 +1,7 @@
 package com.mycompany.app.data;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -14,6 +15,9 @@ public interface InvoiceItemDao {
 
     @Update
     void update(InvoiceItem item);
+
+    @Delete
+    void delete(InvoiceItem item);
 
     @Query("SELECT * FROM invoice_items WHERE invoiceId = :invoiceId")
     List<InvoiceItem> findByInvoice(long invoiceId);
