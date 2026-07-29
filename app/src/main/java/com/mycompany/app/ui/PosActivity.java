@@ -18,35 +18,51 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.mycompany.app.R;
 import com.mycompany.app.data.AppDatabase;
+import com.mycompany.app.data.Invoice;
+import com.mycompany.app.data.InvoiceItem;
 import com.mycompany.app.data.Product;
+import com.mycompany.app.util.LanguageHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-// Simple POS activity: search products, scan barcode and add to invoice (POC)
+// POS activity: search products, scan barcode and add to invoice (POC)
 public class PosActivity extends AppCompatActivity {
-
-    private static final int REQUEST_CODE_SCAN = 49374; // not used with IntentIntegrator
 
     private EditText etSearch;
     private Button btnScan;
+    private Button btnLang;
     private RecyclerView rvProducts;
 
     private AppDatabase db;
     private List<Product> currentProducts = new ArrayList<>();
 
+    // active invoice id
+    private long activeInvoiceId = -1;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // apply language before setContentView
+        LanguageHelper.applyLanguage(this);
+
         setContentView(R.layout.activity_pos);
 
         etSearch = findViewById(R.id.et_search);
         btnScan = findViewById(R.id.btn_scan);
+        btnLang = findViewById(R.id.btn_lang);
         rvProducts = findViewById(R.id.rv_products);
 
         db = AppDatabase.getInstance(this);
 
         rvProducts.setLayoutManager(new LinearLayoutManager(this));
+
+        // create or open an active invoice
+        new Thread(() -> {
+            Invoice inv = new Invoice(System.currentTimeMillis(), 0.0, 0.0, "", 0);
+            activeInvoiceId = db.invoiceDao().insert(inv);
+        }).start();
 
         // load initial products in background
         new Thread(() -> {
@@ -68,6 +84,25 @@ public class PosActivity extends AppCompatActivity {
         });
 
         btnScan.setOnClickListener(v -> startBarcodeScanner());
+
+        btnLang.setOnClickListener(v -> toggleLanguage());
+
+        findViewById(R.id.btn_view_invoice).setOnClickListener(v -> {
+            // For now just toast invoice id
+            Toast.makeText(PosActivity.this, "Invoice ID: " + activeInvoiceId, Toast.LENGTH_SHORT).show();
+        });
+    }
+
+    private void toggleLanguage() {
+        // toggle between ar and en
+        // simple implementation: check current locale by reading string resource
+        String current = getResources().getConfiguration().locale.getLanguage();
+        String next = current.equals("ar") ? "en" : "ar";
+        LanguageHelper.setLanguage(this, next);
+        // restart activity to apply language
+        Intent i = getIntent();
+        finish();
+        startActivity(i);
     }
 
     private void search(String q) {
@@ -105,14 +140,44 @@ public class PosActivity extends AppCompatActivity {
         if (code == null) return;
         new Thread(() -> {
             Product p = db.productDao().findByBarcode(code);
-            runOnUiThread(() -> {
-                if (p == null) {
-                    Toast.makeText(PosActivity.this, getString(R.string.msg_no_product_found), Toast.LENGTH_LONG).show();
-                } else {
-                    // TODO: add to invoice. For POC show toast
-                    Toast.makeText(PosActivity.this, p.name + " added to invoice", Toast.LENGTH_LONG).show();
-                }
-            });
+            if (p == null) {
+                runOnUiThread(() -> Toast.makeText(PosActivity.this, getString(R.string.msg_no_product_found), Toast.LENGTH_LONG).show());
+                return;
+            }
+
+            addProductToInvoice(p);
+
+            runOnUiThread(() -> Toast.makeText(PosActivity.this, p.name + " added to invoice", Toast.LENGTH_LONG).show());
+        }).start();
+    }
+
+    public void addProductToInvoice(Product p) {
+        if (activeInvoiceId <= 0) return;
+
+        new Thread(() -> {
+            // check if item exists for this invoice
+            InvoiceItem existing = db.invoiceItemDao().findByInvoiceAndProduct(activeInvoiceId, p.id);
+            if (existing != null) {
+                existing.quantity += 1;
+                existing.lineTotal = existing.quantity * existing.unitPrice;
+                db.invoiceItemDao().update(existing);
+            } else {
+                double unitPrice = p.priceRetail;
+                double lineTotal = unitPrice * 1;
+                double profit = (unitPrice - p.pricePurchase) * 1;
+                InvoiceItem item = new InvoiceItem(activeInvoiceId, p.id, 1, unitPrice, lineTotal, profit);
+                db.invoiceItemDao().insert(item);
+            }
+
+            // update invoice total
+            Invoice inv = db.invoiceDao().findById(activeInvoiceId);
+            if (inv != null) {
+                List<InvoiceItem> items = db.invoiceItemDao().findByInvoice(activeInvoiceId);
+                double total = 0.0;
+                for (InvoiceItem it : items) total += it.lineTotal;
+                inv.total = total;
+                db.invoiceDao().update(inv);
+            }
         }).start();
     }
 }

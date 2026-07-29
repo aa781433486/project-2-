@@ -38,9 +38,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.VH> {
         holder.tvName.setText(p.name);
         holder.tvPrice.setText(String.format("%.2f", p.priceRetail));
         holder.btnAdd.setOnClickListener(v -> {
-            // TODO: implement add to invoice
-            // For now show simple toast
-            // ((Activity)ctx).runOnUiThread(() -> Toast.makeText(ctx, p.name + " added", Toast.LENGTH_SHORT).show());
+            if (ctx instanceof PosActivity) {
+                ((PosActivity) ctx).addProductToInvoice(p);
+            }
         });
     }
 
