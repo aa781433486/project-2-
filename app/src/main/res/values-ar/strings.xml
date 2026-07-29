@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">متجر بقالة بلس</string>
+    <string name="hello">أهلاً بك</string>
+    <string name="menu_products">المنتجات</string>
+    <string name="menu_sales">المبيعات</string>
+    <string name="menu_dashboard">لوحة التحكم</string>
+    <string name="menu_settings">الإعدادات</string>
+    <string name="action_switch_language">تغيير اللغة</string>
+    <string name="label_search">بحث</string>
+    <string name="label_barcode_scan">مسح الباركود</string>
+    <string name="label_add_to_invoice">أضف إلى الفاتورة</string>
+    <string name="label_quantity">الكمية</string>
+    <string name="msg_no_product_found">لم يتم العثور على أي منتج</string>
+</resources>
